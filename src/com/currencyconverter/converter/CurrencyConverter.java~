@@ -18,12 +18,12 @@ public class CurrencyConverter {
         return toRate / fromRate;
     }
 
-    // Metodo para convertir un valor entre dos monedas
+    // Método para convertir un valor entre dos monedas
     public static double convertCurrency(double amount, double conversionRate) {
         return amount * conversionRate;
     }
 
-    // Metodo para convertir entre dos monedas, dada una cantidad
+    // Método para convertir entre dos monedas, dada una cantidad
     public static double convert(double amount, String fromCurrency, String toCurrency, Map<String, Double> conversionRates) {
         double conversionRate = getConversionRate(fromCurrency, toCurrency, conversionRates);
         return convertCurrency(amount, conversionRate);

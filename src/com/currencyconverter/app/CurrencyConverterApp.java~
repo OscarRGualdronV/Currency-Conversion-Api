@@ -1,0 +1,58 @@
+package com.currencyconverter.app;
+
+import com.currencyconverter.api.CurrencyApiClient;
+import com.currencyconverter.model.CurrencyCodesResponse;
+import com.currencyconverter.model.CurrencyRatesResponse;
+
+import java.util.Scanner;
+
+public class CurrencyConverterApp {
+
+    public static void main(String[] args) {
+        CurrencyApiClient apiClient = new CurrencyApiClient();
+        Scanner scanner = new Scanner(System.in);
+        boolean exit = false;
+
+        while (!exit) {
+            try {
+                CurrencyCodesResponse codes = apiClient.fetchCurrencyCodes();
+                if (!codes.isSuccess()) {
+                    System.out.println("Error al obtener los códigos de moneda. Por favor, intenta de nuevo.");
+                    return;
+                }
+                System.out.println("\n--- Conversor de Monedas ---");
+                System.out.println("1. Convertir Moneda");
+                System.out.println("2. Salir");
+                System.out.print("Seleccione una opción: ");
+                int option = scanner.nextInt();
+
+                if (option == 2) {
+                    exit = true;
+                    System.out.println("Gracias por usar el conversor de monedas. ¡Hasta luego!");
+                    break;
+                }
+
+                System.out.print("Ingrese el número de la moneda de origen: ");
+                int origenIndex = scanner.nextInt() - 1;
+                String monedaOrigen = codes.supported_codes.get(origenIndex)[0];
+
+                System.out.print("Ingrese el número de la moneda de destino: ");
+                int destinoIndex = scanner.nextInt() - 1;
+                String monedaDestino = codes.supported_codes.get(destinoIndex)[0];
+
+                System.out.print("Ingrese el monto a convertir: ");
+                double monto = scanner.nextDouble();
+
+                CurrencyRatesResponse ratesResponse = apiClient.fetchExchangeRate();
+                if (!ratesResponse.isSuccess()) {
+                    System.out.println("Error obteniendo las tasas de cambio.");
+                    continue;
+                }
+
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
+        }
+}
+
