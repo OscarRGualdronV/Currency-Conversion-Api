@@ -1,7 +1,0 @@
-package com.currencyconverter.utils;
-
-public class clearConsole {
-
-    public static void clear() {
-
-}
