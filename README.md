@@ -16,7 +16,6 @@ Currency Conversion API es una aplicación Java que permite a los usuarios conve
 Esta aplicación utiliza la API [ExchangeRate-API](https://www.exchangerate-api.com/) para obtener tasas de cambio en tiempo real. A continuación, se presentan algunos detalles sobre la API:
 
 - **Endpoint para tasas de cambio**: `https://v6.exchangerate-api.com/v6/{API_KEY}/latest/USD`
-    - Reemplaza `{API_KEY}` con tu clave de API personal.
     - Este endpoint devuelve tasas de cambio con respecto al dólar estadounidense (USD) como base.
 
 - **Endpoint para códigos de moneda**: `https://v6.exchangerate-api.com/v6/{API_KEY}/codes`
@@ -41,7 +40,7 @@ La aplicación está organizada en diferentes módulos para facilitar su manteni
     - **Clases principales**: `CurrencyRatesResponse`, `CurrencyCodesResponse`
     - **Funcionalidad**: Representa las tasas de conversión y códigos de moneda.
 
-4. **`com.currencyconverter.utils`**:
+4. **`utils`**:
     - **Descripción**: Proporciona funciones auxiliares.
     - **Clase principal**: `ConsoleUtils`
     - **Funcionalidad**: Limpia la consola con el método `clearConsole`.
@@ -55,6 +54,7 @@ La aplicación está organizada en diferentes módulos para facilitar su manteni
 ## Requisitos
 
 - JDK 11 o superior.
+- Apache Maven 3.0.0 para la gestión de dependencias (incluida en el proyecto).
 - Dependencias de `Gson` para el manejo de JSON (incluida en el proyecto).
 
 ## Instalación

@@ -16,7 +16,6 @@ Currency Conversion API es una aplicación Java que permite a los usuarios conve
 Esta aplicación utiliza la API [ExchangeRate-API](https://www.exchangerate-api.com/) para obtener tasas de cambio en tiempo real. A continuación, se presentan algunos detalles sobre la API:
 
 - **Endpoint para tasas de cambio**: `https://v6.exchangerate-api.com/v6/{API_KEY}/latest/USD`
-    - Reemplaza `{API_KEY}` con tu clave de API personal.
     - Este endpoint devuelve tasas de cambio con respecto al dólar estadounidense (USD) como base.
 
 - **Endpoint para códigos de moneda**: `https://v6.exchangerate-api.com/v6/{API_KEY}/codes`
